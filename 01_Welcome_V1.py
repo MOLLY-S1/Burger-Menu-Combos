@@ -1,1 +1,1 @@
-import eas
+import easygui
