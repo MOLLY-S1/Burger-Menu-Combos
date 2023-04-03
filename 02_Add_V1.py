@@ -19,8 +19,7 @@ combos = {"VALUE":
 text = "Enter the listed combo items"
 title = "Combo Enter"
 input_list = ["Combo Name", "Burger", "Side", "Drink"]
-values = []
 enter = easygui.multenterbox(text, title, input_list)
-"Combo name".append(values)
-print(values)
+print(enter)
+combos.append(enter)
 
