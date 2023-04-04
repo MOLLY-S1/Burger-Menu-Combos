@@ -1,3 +1,6 @@
+"""This code is the same as V1 but uses multiple enter boxes instead of a
+multenterbox for trialling"""
+
 """Add Version 1
 This Code will store combos in a dictionary"""
 
@@ -23,22 +26,21 @@ new_combos = {}
 
 
 # User enters item names
-text = "Enter the listed combo items"
-title = "Combo Enter"
-input_list = ["Combo Name", "Burger", "Side", "Drink"]
-items = easygui.multenterbox(text, title, input_list)
+combo_name = easygui.enterbox("Enter Combo Name", "Combo Name")
+burger = easygui.enterbox("Enter Burger", "Burger")
+side = easygui.enterbox("Enter Side", "Side")
+drink = easygui.enterbox("Enter Drink", "Drink")
 
 # User enters item prices
-text_price = "Enter Item Price"
-title_price = "Combo Price"
-input_price = [f"{items[1]}", f"{items[2]}", f"{items[3]}"]
-prices = easygui.multenterbox(text_price, title_price, input_price)
+burger_price = easygui.enterbox(f"Enter {burger} Price", "Burger Price")
+side_price = easygui.enterbox(f"Enter {side} Price", "Side Price")
+drink_price = easygui.enterbox(f"Enter {drink} Price", "Drink Price")
 
 # Add the user combo and prices to the dictionary
-new_combos[items[0]] = {}
-new_combos[items[0]][items[1]] = prices[0]
-new_combos[items[0]][items[2]] = prices[1]
-new_combos[items[0]][items[3]] = prices[2]
+new_combos[combo_name] = {}
+new_combos[combo_name][burger] = burger_price
+new_combos[combo_name][side] = side_price
+new_combos[combo_name][drink] = drink_price
 
 combo = ""
 for combo_ID, combo_info in new_combos.items():
