@@ -44,7 +44,7 @@ new_combos[combo_name][drink] = drink_price
 
 combo = ""
 for combo_ID, combo_info in new_combos.items():
-    ID = f"\nCombo Name: {combo_ID}"
+    ID = f"\nCombo Name: {combo_ID.title()}"
     for key, value in combo_info.items():
         combo += f"{key}: {value}\n"
 

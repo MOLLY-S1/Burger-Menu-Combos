@@ -46,6 +46,7 @@ for combo_ID, combo_info in new_combos.items():
     for key, value in combo_info.items():
         combo += f"{key}: {value}\n"
 
+
 easygui.buttonbox(f"Is the following combo correct?\n"
                   f"{ID}\n" f"{combo}", "Combo Check", choices=["Yes", "No"])
 
