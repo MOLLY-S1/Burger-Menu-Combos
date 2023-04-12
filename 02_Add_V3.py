@@ -47,6 +47,20 @@ for combo_ID, combo_info in new_combos.items():
         combo += f"{key}: {value}\n"
 
 
+
+
+error = "Please enter a float"
+while True:
+    try:
+        response = int(input(question))
+        if low <= response <= high:
+            return response
+        else:
+            print(error)
+
+    except ValueError:
+        easygui.msgbox(error)
+
+
 easygui.buttonbox(f"Is the following combo correct?\n"
                   f"{ID}\n" f"{combo}", "Combo Check", choices=["Yes", "No"])
-
