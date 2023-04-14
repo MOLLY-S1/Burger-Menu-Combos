@@ -1,7 +1,5 @@
 """This code uses the chosen trialled code of V2 """
 
-"""Add Version 1
-This Code will store combos in a dictionary"""
 
 import easygui
 
@@ -47,7 +45,16 @@ for combo_ID, combo_info in new_combos.items():
     for key, value in combo_info.items():
         combo += f"{key}: {value}\n"
 
-easygui.buttonbox(f"Is the following combo correct?\n"
+correct = easygui.buttonbox(f"Is the following combo correct?\n"
                   f"{ID}\n" f"{combo}", "Combo Check", choices=["Yes", "No"])
 
-
+if correct == "No":
+    change = easygui.buttonbox("What would you like to change?",
+                               "Change Choice", choices=["Item Name",
+                                                         "Item Price"])
+    if change == "Item Name":
+        combo_name = easygui.enterbox("Enter Combo Name", "Combo Name")
+        burger = easygui.enterbox("Enter Burger", "Burger")
+        side = easygui.enterbox("Enter Side", "Side")
+        drink = easygui.enterbox("Enter Drink", "Drink")
+        
