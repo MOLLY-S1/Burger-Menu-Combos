@@ -16,20 +16,17 @@ def change(confirm_combo):
                                           "Combo Name"])
         if change_value == "Item Name":
             item = easygui.buttonbox("What item do you want to change:",
-                                     "Item Name", choices=[[confirm_combo[0][0]],
-                                                           [confirm_combo[0][1]],
-                                                           [confirm_combo[0][2]]])
-            if item in confirm_combo:
-                new = easygui.enterbox(f"Enter the name you want to change "
-                                       f"{item} to:", "New Name")
-                combos.pop(new, item)
-                print(combos)
+                                     "Item Name", choices=[confirm_combo[combo_ID][key],
+                                                           confirm_combo[combo_ID][key],
+                                                           confirm_combo[combo_ID][key]])
+        if change_value == "Item Price":
+            price = easygui.buttonbox("What price would you like to change: ",
+                                      "Item Price",
+                                      choices=[confirm_combo[combo_ID][key],
+                                               confirm_combo[combo_ID][key],
+                                               confirm_combo[combo_ID][key]])
 
-            else:
-                easygui.msgbox("Sorry, that is not the name of "
-                           "an item in this combo:\n\n"
-                           f"{ID}\n" f"{combo}", "Error")
-                print(confirm_combo)
+
 # Main routine
 combos = {"VALUE":
               {"Beef Burger": 5.69,

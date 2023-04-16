@@ -28,7 +28,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../2022/Computer Science/Programming/Assessment/08_Aim_V4.py" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.05_Blank_Checker_V3">
+  <component name="RunManager" selected="Python.04_Change_V2">
     <configuration name="04_Change_V1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Burger-Menu-Combos" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -136,11 +136,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.04_Change_V2" />
+        <item itemvalue="Python.04_Change_V1" />
         <item itemvalue="Python.05_Blank_Checker_V3" />
         <item itemvalue="Python.05_Blank_Checker_V2" />
         <item itemvalue="Python.05_Blank_Checker_V1" />
-        <item itemvalue="Python.04_Change_V2" />
-        <item itemvalue="Python.04_Change_V1" />
       </list>
     </recent_temporary>
   </component>
