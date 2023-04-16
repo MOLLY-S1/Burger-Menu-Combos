@@ -69,3 +69,4 @@ combos = {"VALUE":
                "Fries": 1.00,
                "Fizzy Drink": 1.00}}
 change(combos)
+print(combos)
