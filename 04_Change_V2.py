@@ -19,10 +19,10 @@ def change(confirm_combo):
                                      "Item Name", choices=[[confirm_combo[0][0]],
                                                            [confirm_combo[0][1]],
                                                            [confirm_combo[0][2]]])
-            if current in confirm_combo:
+            if item in confirm_combo:
                 new = easygui.enterbox(f"Enter the name you want to change "
-                                       f"{current} to:", "New Name")
-                combos.pop(new, current)
+                                       f"{item} to:", "New Name")
+                combos.pop(new, item)
                 print(combos)
 
             else:
