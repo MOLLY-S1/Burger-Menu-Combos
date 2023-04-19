@@ -10,7 +10,9 @@ while True:
     user_choice = easygui.buttonbox("Please choose an option:", "Menu Options",
                                     choices=["Add Combo", "Find Combo",
                                              "Delete Combo", "Output Combo",
-                                             "Exit"])
+                                            "Exit"])
+
+
     if user_choice == "Add Combo":
         print("Add Combo")
 

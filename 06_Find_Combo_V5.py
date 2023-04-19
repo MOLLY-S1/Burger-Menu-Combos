@@ -1,16 +1,7 @@
+"""Component 6 Version 5, builds on the code from version 4, puts the code
+into a function for later use"""
+
 import easygui
-
-
-# Function to welcome user and choose option
-def welcome():
-    easygui.msgbox("Welcome to Burger Menu Combos", "Welcome")
-
-    user_choice = easygui.buttonbox("Please choose an option:", "Menu Options",
-                                    choices=["Add Combo", "Find Combo",
-                                             "Delete Combo", "Output Combo",
-                                             "Exit"])
-
-    return user_choice
 
 
 # Function to check no blanks are entered
@@ -115,38 +106,8 @@ def change(confirm_combo):
             confirm_combo[new] = confirm_combo.pop(combo_ID)
 
 
-# Function to add new combo
-def add_combo(combos):
-    # Combo menu
-
-
-    # Dictionary for new combos to be added and edited from
-    new_combos = {}
-
-    # User enters item names
-    combo_name = blank_check("Enter Combo Name", "Combo Name").upper()
-    burger = blank_check("Enter Burger", "Burger")
-    side = blank_check("Enter Side", "Side")
-    drink = blank_check("Enter Drink", "Drink")
-
-    # User enters item prices
-    burger_price = \
-        num_check(f"Enter {burger} Price", "Burger Price", 0.1, 50)
-    side_price = num_check(f"Enter {side} Price", "Side Price", 0.1, 50)
-    drink_price = num_check(f"Enter {drink} Price", "Drink Price", 0.1, 50)
-
-    # Add the user combo and prices to the dictionary
-    new_combos[combo_name] = {}
-    new_combos[combo_name][burger] = burger_price
-    new_combos[combo_name][side] = side_price
-    new_combos[combo_name][drink] = drink_price
-
-    correct_combo = change(new_combos)
-
-    combos.update(correct_combo)
-
 # Function to find combo
-def find_combo(combos):
+def find_combo():
     while True:
         # User enters combo name
         search_name = blank_check("Enter name of combo: ", "Search").upper()
@@ -170,39 +131,19 @@ def find_combo(combos):
 
         break
 
-# MAIN ROUTINE
+
+# Main Routine
 combos = {"VALUE":
-                  {"Beef Burger": 5.69,
-                   "Fries": 1.00,
-                   "Fizzy Drink": 1.00},
-              "CHEEZY":
-                  {"Cheeseburger": 6.69,
-                   "Fries": 1.00,
-                   "Fizzy Drink": 1.00},
-              "SUPER":
-                  {"Cheeseburger": 6.69,
-                   "Large Fries": 2.00,
-                   "Smoothie": 2.00}
-              }
-choice = welcome()
-
-while choice != "Exit":
-    if choice == "Add Combo":
-        add_combo(combos)
-        choice = welcome()
-
-    elif choice == "Find Combo":
-        find_combo(combos)
-        choice = welcome()
-
-    elif choice == "Delete Combo":
-        print("Delete Combo")
-        choice = welcome()
-
-    elif choice == "Output Combo":
-        print("Output Combo")
-        choice = welcome()
-
-
-print("Goodbye")
-
+              {"Beef Burger": 5.69,
+               "Fries": 1.00,
+               "Fizzy Drink": 1.00},
+          "CHEEZY":
+              {"Cheeseburger": 6.69,
+               "Fries": 1.00,
+               "Fizzy Drink": 1.00},
+          "SUPER":
+              {"Cheeseburger": 6.69,
+               "Large Fries": 2.00,
+               "Smoothie": 2.00}
+          }
+find_combo()
