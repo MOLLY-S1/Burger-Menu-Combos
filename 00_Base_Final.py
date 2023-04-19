@@ -1,3 +1,5 @@
+"""Final program for Burger-Menu-Combos"""
+
 import easygui
 from math import fsum
 
