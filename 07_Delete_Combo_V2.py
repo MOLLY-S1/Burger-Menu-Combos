@@ -1,5 +1,24 @@
-"""Component 7 Version 1, Delete combo"""
+"""Component 7 Version 2, Delete combo, builds on code from V1 adds confirmation
+statement and blank checker is added"""
 import easygui
+
+
+# Function to check no blanks are entered
+def blank_check(question, title):
+    error = "That was not a valid input\n" \
+            "Please answer all questions"
+
+    while True:
+        try:
+            response = easygui.enterbox(question, title)
+            if response != "":
+                return response
+            else:
+                easygui.msgbox(error)
+
+        except ValueError:
+            easygui.msgbox(error)
+
 
 # Combo Menu
 combos = {"VALUE":
@@ -30,20 +49,26 @@ for comb_ID, combo_info in combos.items():
         menu += f"{key}: ${value} \n"
 
 # User enters combo name
-choice = easygui.enterbox(f"Below is the full combo menu:\n\n"
+choice = blank_check(f"Below is the full combo menu:\n\n"
                           f"{menu}\n\n"
-                          f"What would you like to delete:", "Delete Combo").upper()
+                          f"What would you like to delete:",
+                          "Delete Combo").upper()
 
 while choice not in combos:
     easygui.msgbox(f"Sorry, {choice} is not in the combo menu")
 
     # User enters combo name
-    choice = easygui.enterbox(f"Below is the full combo menu:\n\n"
+    choice = blank_check(f"Below is the full combo menu:\n\n"
                               f"{menu}\n\n"
                               f"What would you like to delete:",
                               "Delete Combo").upper()
 
 # Add combo to menu dictionary
-del [combos[choice]]
-easygui.msgbox(f"{choice} has been deleted from the menu")
+sure = easygui.buttonbox(f"Are you sure you want to delete {choice}\n"
+                         f"Once it is deleted this cannot be undone",
+                         "Delete Confirm", choices=["Yes","No"])
+if sure == "Yes":
+    del [combos[choice]]
+    easygui.msgbox(f"{choice} has been deleted from the menu")
+
 
