@@ -1,7 +1,40 @@
 """This code uses the chosen trialled code of V2 """
 
-
 import easygui
+
+def blank_check(question, title):
+    error = "That was not a valid input\n" \
+             "Please answer all questions"
+
+    while True:
+        try:
+            response = easygui.enterbox(question, title)
+            if response != "":
+                return response
+            else:
+                easygui.msgbox(error)
+
+        except ValueError:
+            easygui.msgbox(error)
+
+def num_check(question, title, low, high):
+    error = "That was not a valid input\n" \
+             "Please enter a float between {} and {}\n".\
+            format(low, high)
+
+    while True:
+        try:
+            response = float(easygui.enterbox(question, title))
+            if low <= response <= high:
+                return response
+            else:
+                easygui.msgbox(error)
+
+        except ValueError:
+            easygui.msgbox(error)
+
+
+
 
 # Combo menu
 combos = {"VALUE":
@@ -23,15 +56,16 @@ new_combos = {}
 
 
 # User enters item names
-combo_name = easygui.enterbox("Enter Combo Name", "Combo Name")
-burger = easygui.enterbox("Enter Burger", "Burger")
-side = easygui.enterbox("Enter Side", "Side")
-drink = easygui.enterbox("Enter Drink", "Drink")
+combo_name = blank_check("Enter Combo Name", "Combo Name").upper()
+burger = blank_check("Enter Burger", "Burger")
+side = blank_check("Enter Side", "Side")
+drink = blank_check("Enter Drink", "Drink")
 
 # User enters item prices
-burger_price = easygui.enterbox(f"Enter {burger} Price", "Burger Price")
-side_price = easygui.enterbox(f"Enter {side} Price", "Side Price")
-drink_price = easygui.enterbox(f"Enter {drink} Price", "Drink Price")
+burger_price = \
+    num_check(f"Enter {burger} Price", "Burger Price")
+side_price = num_check(f"Enter {side} Price", "Side Price")
+drink_price = num_check(f"Enter {drink} Price", "Drink Price")
 
 # Add the user combo and prices to the dictionary
 new_combos[combo_name] = {}
@@ -45,16 +79,6 @@ for combo_ID, combo_info in new_combos.items():
     for key, value in combo_info.items():
         combo += f"{key}: {value}\n"
 
-correct = easygui.buttonbox(f"Is the following combo correct?\n"
-                  f"{ID}\n" f"{combo}", "Combo Check", choices=["Yes", "No"])
 
-if correct == "No":
-    change = easygui.buttonbox("What would you like to change?",
-                               "Change Choice", choices=["Item Name",
-                                                         "Item Price"])
-    if change == "Item Name":
-        combo_name = easygui.enterbox("Enter Combo Name", "Combo Name")
-        burger = easygui.enterbox("Enter Burger", "Burger")
-        side = easygui.enterbox("Enter Side", "Side")
-        drink = easygui.enterbox("Enter Drink", "Drink")
-        
+
+
