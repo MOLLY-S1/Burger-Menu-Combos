@@ -117,9 +117,6 @@ def change(confirm_combo):
 
 # Function to add new combo
 def add_combo(combos):
-    # Combo menu
-
-
     # Dictionary for new combos to be added and edited from
     new_combos = {}
 
@@ -171,6 +168,8 @@ def find_combo(combos):
         break
 
 # MAIN ROUTINE
+
+# Combo Menu
 combos = {"VALUE":
                   {"Beef Burger": 5.69,
                    "Fries": 1.00,
