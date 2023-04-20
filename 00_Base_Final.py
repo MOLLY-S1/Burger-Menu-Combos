@@ -54,15 +54,15 @@ def change(confirm_combo, combos):
     while True:
         combo = ""
         for combo_ID, combo_info in confirm_combo.items():
-            ID = f"\nCombo Name: {combo_ID.upper()}"
+            name = f"\nCombo Name: {combo_ID.upper()}"
             for key, value in combo_info.items():
                 combo += f"{key}: ${value:.2f}\n"
         correct = easygui.buttonbox(f"Is the following combo correct?\n"
-                                    f"{ID}\n" f"{combo}", "Combo Check",
+                                    f"{name}\n" f"{combo}", "Combo Check",
                                     choices=["Yes", "No"])
 
         if correct == "Yes":
-            easygui.msgbox(f"You have sucessfully changed the new combo "
+            easygui.msgbox(f"You have successfully changed the new combo "
                            f"{combo_ID}", "Combo added")
             return confirm_combo
 
@@ -79,7 +79,7 @@ def change(confirm_combo, combos):
             while current not in confirm_combo[combo_ID]:
                 easygui.msgbox("Sorry, that is not the name of "
                                "an item in this combo:\n\n"
-                               f"{ID}\n" f"{combo}", "Error")
+                               f"{name}\n" f"{combo}", "Error")
 
                 current = blank_check("Enter the current name of the "
                                       "item you wish to change:",
@@ -98,7 +98,7 @@ def change(confirm_combo, combos):
             while current_price not in confirm_combo[combo_ID]:
                 easygui.msgbox("Sorry, that is not the name of "
                                "an item in this combo:\n\n"
-                               f"{ID}\n" f"{combo}", "Error")
+                               f"{name}\n" f"{combo}", "Error")
 
                 current_price = blank_check("Enter the name of the "
                                             "item which price you wish "
@@ -165,7 +165,7 @@ def find_combo(combos):
             search_name = blank_check("Enter name of combo: ",
                                       "Search").upper()
 
-        # Add the searched combo to a seperate dictionary
+        # Add the searched combo to a separate dictionary
         searched_combo = {search_name: combos[search_name]}
 
         # Confirm dictionary
@@ -194,27 +194,27 @@ def delete_combo(combos):
         menu += "--------------------------------"
 
     # User enters combo name
-    choice = blank_check(f"Below is the full combo menu:\n\n"
+    option = blank_check(f"Below is the full combo menu:\n\n"
                          f"{menu}\n\n"
                          f"What would you like to delete:",
                          "Delete Combo").upper()
 
-    while choice not in combos:
-        easygui.msgbox(f"Sorry, {choice} is not in the combo menu")
+    while option not in combos:
+        easygui.msgbox(f"Sorry, {option} is not in the combo menu")
 
         # User enters combo name
-        choice = blank_check(f"Below is the full combo menu:\n\n"
+        option = blank_check(f"Below is the full combo menu:\n\n"
                              f"{menu}\n\n"
                              f"What would you like to delete:",
                              "Delete Combo").upper()
 
     # Add combo to menu dictionary
-    sure = easygui.buttonbox(f"Are you sure you want to delete {choice}\n"
+    sure = easygui.buttonbox(f"Are you sure you want to delete {option}\n"
                              f"Once it is deleted this cannot be undone",
                              "Delete Confirm", choices=["Yes", "No"])
     if sure == "Yes":
-        del [combos[choice]]
-        easygui.msgbox(f"{choice} has been deleted from the menu")
+        del [combos[option]]
+        easygui.msgbox(f"{option} has been deleted from the menu")
 
 
 # Function to output combo menu
@@ -247,9 +247,9 @@ def output_combo(combos):
 
 # Combo Menu
 combo_menu = {"VALUE":
-                  {"Beef Burger": 5.69,
-                   "Fries": 1.00,
-                   "Fizzy Drink": 1.00},
+              {"Beef Burger": 5.69,
+               "Fries": 1.00,
+               "Fizzy Drink": 1.00},
               "CHEEZY":
                   {"Cheeseburger": 6.69,
                    "Fries": 1.00,
