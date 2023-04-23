@@ -240,7 +240,7 @@ def output_combo(combos):
     # Output total menu
     easygui.msgbox(f"Total Menu:\n"
                    f"-----------------------\n"
-                   f"{menu}\n\n")
+                   f"{menu}\n\n", "Output Combo")
 
 
 # MAIN ROUTINE
