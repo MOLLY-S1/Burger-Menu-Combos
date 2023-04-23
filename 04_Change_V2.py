@@ -1,4 +1,8 @@
+"""Component 4 Version 2, Change Combo, Trial 2 using a message and loop to
+edit combo"""
+
 import easygui
+
 
 def change(confirm_combo):
     combo = ""

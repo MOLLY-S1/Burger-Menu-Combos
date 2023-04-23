@@ -1,5 +1,6 @@
-import easygui
+"""Component 4 Version 1, Change combo, Trial 1 using a function"""
 
+import easygui
 
 
 def change(confirm_combo):
